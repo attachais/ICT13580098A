@@ -12,8 +12,22 @@ namespace ICT13580098A
         public App()
         {
             InitializeComponent();
+            var np = new NavigationPage(new NavPage1());
+            var tp = new TabbedPage();
+            tp.Children.Add(new TabPage1());
+            tp.Children.Add(new TabPage2());
+            tp.Children.Add(new TabPage3());
 
-            MainPage = new ICT13580098A.MainPage();
+            var cp = new CarouselPage();
+            cp.Children.Add(new TabPage1());
+            cp.Children.Add(new TabPage2());
+            cp.Children.Add(new TabPage3());
+
+            var mp = new MasterDetailPage();
+            mp.Master = new MenuPage();
+            mp.Detail = new NavigationPage(new MainPage());
+
+            MainPage = mp;
         }
 
         protected override void OnStart()
